@@ -39,8 +39,12 @@ This dataset shows number of climate related natural disasters between 1980-2022
 2. Searching for suitable dataset [#2][i2]
 3. Writing initial project plan [#3][i3]
 4. Retrieving data from data source [#4][i4]
+5. Filter and fix data [#5][i5]
+6. Store data as SQLite file [#6][i6]
 
 [i1]: https://github.com/tanvirtanjum/MADE-SS-24/issues/1
 [i2]: https://github.com/tanvirtanjum/MADE-SS-24/issues/2
 [i3]: https://github.com/tanvirtanjum/MADE-SS-24/issues/3
 [i4]: https://github.com/tanvirtanjum/MADE-SS-24/issues/4
+[i5]: https://github.com/tanvirtanjum/MADE-SS-24/issues/5
+[i6]: https://github.com/tanvirtanjum/MADE-SS-24/issues/6
