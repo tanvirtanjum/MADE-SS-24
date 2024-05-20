@@ -64,9 +64,9 @@ pipeline goodsPipeline {
     }
 
     block goodsTableInterpreter oftype TableInterpreter {
-        header: false;
+        header: true;
         columns: [
-            "year" oftype text,
+            "year" oftype PositiveIntPattern,
             "month" oftype MonthPattern,
             "goods_id" oftype GoodIdPattern,
             "goods_name" oftype text,
