@@ -1,4 +1,4 @@
-pipeline goods {
+pipeline goodsPipeline {
     goodsExtractor -> goodsInterpreter;
 
     goodsInterpreter
@@ -64,9 +64,9 @@ pipeline goods {
     }
 
     block goodsTableInterpreter oftype TableInterpreter {
-        header: true;
+        header: false;
         columns: [
-            "year" oftype PositiveIntPattern,
+            "year" oftype text,
             "month" oftype MonthPattern,
             "goods_id" oftype GoodIdPattern,
             "goods_name" oftype text,
