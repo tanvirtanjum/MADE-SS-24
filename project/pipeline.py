@@ -31,11 +31,21 @@ def renameColumn(data, renameColumns):
     return data
 
 def dataLeftJoin(left, right, key, leftSufx, rightSufx):
-    print("Processing Data...")
-    return pd.merge(left, right, how ='left', on =key, suffixes=(leftSufx, rightSufx)) 
+    print("Joining Data...")
+    return pd.merge(left, right, how ='left', on = key, suffixes=(leftSufx, rightSufx)) 
 
 def dropNull(data):
+    print("Filtering rows...")
     return data.dropna(how='any',axis=0) 
+
+def meltTable(data, keep, melt):
+    print("Processing Data...")
+    return pd.melt(data, id_vars=keep, value_vars=melt, ignore_index=True)
+
+def fixYear(data):
+    data = data
+    data['Year'] = data['Year'].str[1:]
+    return data
 
 def csvToSQLite(data, savingPath, sqliteFileName, sqliteTableName):
     conn = sqlite3.connect(savingPath+sqliteFileName)
@@ -50,12 +60,14 @@ targetedPath = "../data/"
 url1 = "https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv"
 dropColumns1 = ["ObjectId", "Indicator", "Source", "CTS_Code", "CTS_Name", "CTS_Full_Descriptor",  "F2000","F2001","F2002","F2003","F2004","F2005","F2006","F2007","F2008","F2009"]
 selectedColumns1 = ["Country","ISO3","Unit", "F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]
-# renameColumns1 = {"F2010":"F2010_Temp", "F2011":"F2011_Temp","F2012":"F2012_Temp","F2013":"F2013_Temp","F2014":"F2014_Temp","F2015":"F2015_Temp","F2016":"F2016_Temp","F2017":"F2017_Temp","F2018":"F2018_Temp","F2019":"F2019_Temp","F2020":"F2020_Temp"}
-data1 = columnSelector(csvFetch(url1), dropColumns1, selectedColumns1)
+renameColumns1 = {"variable":"Year", "value":"Temperature"}
+data1 = fixYear(renameColumn(meltTable(columnSelector(csvFetch(url1), dropColumns1, selectedColumns1), ['ISO3', "Country"], ["F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]), renameColumns1))
 
 url2 = "https://opendata.arcgis.com/datasets/b13b69ee0dde43a99c811f592af4e821_0.csv"
 dropColumns2 = ["ObjectId", "Source", "CTS_Code", "CTS_Name", "CTS_Full_Descriptor",  "F2000","F2001","F2002","F2003","F2004","F2005","F2006","F2007","F2008","F2009",]
 selectedColumns2 = ["ISO3","Unit", "F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]
-data2 = columnSelector(incidentsSelector(csvFetch(url2), "Climate related disasters frequency, Number of Disasters: TOTAL"), dropColumns2, selectedColumns2)
+renameColumns2 = {"variable":"Year", "value":"Incident"}
+data2 = fixYear(renameColumn(meltTable(columnSelector(incidentsSelector(csvFetch(url2), "Climate related disasters frequency, Number of Disasters: TOTAL"), dropColumns2, selectedColumns2), ['ISO3'], ["F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]), renameColumns2))
 
-csvToSQLite(dropNull(dataLeftJoin(data1, data2, "ISO3", "_temp", "_incident")), targetedPath, "SurfaceTemperatureChangeOnClimate_relatedDisaster.sqlite", "Temp_Disaster")
+
+csvToSQLite(dropNull(dataLeftJoin(data1, data2, ["ISO3", "Year"], "_temp", "_incident")), targetedPath, "SurfaceTemperatureChangeOnClimate_relatedDisaster.sqlite", "Temp_Disaster")
