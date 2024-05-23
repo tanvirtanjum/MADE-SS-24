@@ -65,7 +65,7 @@ def csvToSQLite(data, savingPath, sqliteFileName, sqliteTableName):
         print("Resolving Path...")
         conn = sqlite3.connect("../data/"+sqliteFileName)
         data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-        print("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+        print("Data Exported... [Check Data Folder]")
         conn.close()  
         print("End...")
 
