@@ -1,11 +1,10 @@
 import pandas as pd
 import numpy as npy
 import sqlite3
+import os
+import sys
 
 node = 0
-
-def incidentsSelector(data, indicator):
-    return data[data.Indicator == indicator]
 
 def csvFetch(url):
     global node
@@ -14,9 +13,14 @@ def csvFetch(url):
     node += 1
     if node > 0:
         print("Fetching Data from Source "+str(node)+"...")
-    data = pd.read_csv(url)
-    dataFrame = pd.DataFrame(data)
-    return dataFrame
+    try:
+        data = pd.read_csv(url)
+        dataFrame = pd.DataFrame(data)
+        return dataFrame
+    except:
+        print("Data couldn't fetched...")
+        print("Aborted...")
+        sys.exit(0)
 
 def columnSelector(data, dropColumns, selectedColumns):
     if len(dropColumns) > 0:
@@ -30,9 +34,13 @@ def renameColumn(data, renameColumns):
     data.rename(columns=renameColumns, inplace = True)
     return data
 
-def dataLeftJoin(left, right, key, leftSufx, rightSufx):
-    print("Joining Data...")
-    return pd.merge(left, right, how ='left', on = key, suffixes=(leftSufx, rightSufx)) 
+def incidentsSelector(data, indicator):
+    return data[data.Indicator == indicator]
+
+def fixYear(data):
+    data = data
+    data['Year'] = data['Year'].str[1:]
+    return data
 
 def dropNull(data):
     print("Filtering rows...")
@@ -42,20 +50,27 @@ def meltTable(data, keep, melt):
     print("Processing Data...")
     return pd.melt(data, id_vars=keep, value_vars=melt, ignore_index=True)
 
-def fixYear(data):
-    data = data
-    data['Year'] = data['Year'].str[1:]
-    return data
+def dataLeftJoin(left, right, key, leftSufx, rightSufx):
+    print("Joining Data...")
+    return pd.merge(left, right, how ='left', on = key, suffixes=(leftSufx, rightSufx)) 
 
 def csvToSQLite(data, savingPath, sqliteFileName, sqliteTableName):
-    conn = sqlite3.connect(savingPath+sqliteFileName)
-    data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-    print("Data Exported... [$root"+savingPath[2 : ]+sqliteFileName+"]")
-    conn.close()
-    
-    print("End...")
+    try:
+        conn = sqlite3.connect(savingPath+sqliteFileName)
+        data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
+        print("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+        conn.close()  
+        print("End...")
+    except:
+        print("Resolving Path...")
+        conn = sqlite3.connect("../data/"+sqliteFileName)
+        data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
+        print("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+        conn.close()  
+        print("End...")
 
-targetedPath = "../data/"   
+
+targetedPath = os.path.join(os.getcwd(), "data\\")  
 
 url1 = "https://opendata.arcgis.com/datasets/4063314923d74187be9596f10d034914_0.csv"
 dropColumns1 = ["ObjectId", "Indicator", "Source", "CTS_Code", "CTS_Name", "CTS_Full_Descriptor",  "F2000","F2001","F2002","F2003","F2004","F2005","F2006","F2007","F2008","F2009"]
