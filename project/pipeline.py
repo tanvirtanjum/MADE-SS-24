@@ -30,12 +30,12 @@ def columnSelector(data, dropColumns, selectedColumns):
         
     return data
 
+def rowSelector(data, row, value):
+    return data[data[row] == value]
+
 def renameColumn(data, renameColumns):
     data.rename(columns=renameColumns, inplace = True)
     return data
-
-def incidentsSelector(data, indicator):
-    return data[data.Indicator == indicator]
 
 def fixYear(data):
     data = data
@@ -82,7 +82,7 @@ url2 = "https://opendata.arcgis.com/datasets/b13b69ee0dde43a99c811f592af4e821_0.
 dropColumns2 = ["ObjectId", "Source", "CTS_Code", "CTS_Name", "CTS_Full_Descriptor",  "F2000","F2001","F2002","F2003","F2004","F2005","F2006","F2007","F2008","F2009",]
 selectedColumns2 = ["ISO3","Unit", "F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]
 renameColumns2 = {"variable":"Year", "value":"Incident"}
-data2 = fixYear(renameColumn(meltTable(columnSelector(incidentsSelector(csvFetch(url2), "Climate related disasters frequency, Number of Disasters: TOTAL"), dropColumns2, selectedColumns2), ['ISO3'], ["F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]), renameColumns2))
+data2 = fixYear(renameColumn(meltTable(columnSelector(rowSelector(csvFetch(url2), "Indicator", "Climate related disasters frequency, Number of Disasters: TOTAL"), dropColumns2, selectedColumns2), ['ISO3'], ["F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]), renameColumns2))
 
 
 csvToSQLite(dropNull(dataLeftJoin(data1, data2, ["ISO3", "Year"], "_temp", "_incident")), targetedPath, "SurfaceTemperatureChangeOnClimate_relatedDisaster.sqlite", "Temp_Disaster")
