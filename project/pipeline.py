@@ -3,23 +3,28 @@ import numpy as npy
 import sqlite3
 import os
 import sys
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
+
+colorama_init()
 
 node = 0
 
 def csvFetch(url):
     global node
     if node == 0:
-        print("Start...")
+        print(f"{Fore.GREEN}{Style.BRIGHT}Start...{Style.RESET_ALL}")
     node += 1
     if node > 0:
-        print("Fetching Data from Source "+str(node)+"...")
+        print(f"{Style.DIM}{Fore.YELLOW}Fetching Data from Source {Style.RESET_ALL}{Style.BRIGHT}{Fore.YELLOW}"+str(node)+f"{Style.DIM}{Fore.YELLOW}...{Style.RESET_ALL}")
     try:
         data = pd.read_csv(url)
         dataFrame = pd.DataFrame(data)
         return dataFrame
     except:
-        print("Data couldn't fetched...")
-        print("Aborted...")
+        print(f"{Fore.RED}{Style.NORMAL}Data couldn't fetched...{Style.RESET_ALL}")
+        print(f"{Fore.RED}{Style.BRIGHT}Aborted...{Style.RESET_ALL}")
         sys.exit(0)
 
 def columnSelector(data, dropColumns, selectedColumns):
@@ -39,36 +44,35 @@ def renameColumn(data, renameColumns):
 
 def fixYear(data):
     data = data
-    data['Year'] = data['Year'].str[1:]
+    data["Year"] = data["Year"].str[1:]
     return data
 
 def dropNull(data):
-    print("Filtering rows...")
+    print(f"{Fore.CYAN}{Style.NORMAL}Filtering rows...{Style.RESET_ALL}")
     return data.dropna(how='any',axis=0) 
 
 def meltTable(data, keep, melt):
-    print("Processing Data...")
+    print(f"{Fore.CYAN}{Style.NORMAL}Processing Data...{Style.RESET_ALL}")
     return pd.melt(data, id_vars=keep, value_vars=melt, ignore_index=True)
 
 def dataLeftJoin(left, right, key, leftSufx, rightSufx):
-    print("Joining Data...")
+    print(f"{Fore.CYAN}{Style.NORMAL}Joining Data...{Style.RESET_ALL}")
     return pd.merge(left, right, how ='left', on = key, suffixes=(leftSufx, rightSufx)) 
 
 def csvToSQLite(data, savingPath, sqliteFileName, sqliteTableName):
     try:
         conn = sqlite3.connect(savingPath+sqliteFileName)
         data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-        print("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+        print(f"{Fore.MAGENTA}{Style.BRIGHT}Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+f"]{Style.RESET_ALL}")
         conn.close()  
-        print("End...")
+        print(f"{Fore.GREEN}{Style.BRIGHT}End...{Style.RESET_ALL}")
     except:
-        print("Resolving Path...")
+        print(f"{Fore.YELLOW}{Style.DIM}Resolving Path...{Style.RESET_ALL}")
         conn = sqlite3.connect("../data/"+sqliteFileName)
         data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-        print("Data Exported... [Check Data Folder]")
+        print(f"{Fore.MAGENTA}{Style.BRIGHT}Data Exported... [Check Data Folder]{Style.RESET_ALL}")
         conn.close()  
-        print("End...")
-
+        print(f"{Fore.GREEN}{Style.BRIGHT}End...{Style.RESET_ALL}")
 
 targetedPath = os.path.join(os.getcwd(), "data\\")  
 
@@ -83,6 +87,5 @@ dropColumns2 = ["ObjectId", "Source", "CTS_Code", "CTS_Name", "CTS_Full_Descript
 selectedColumns2 = ["ISO3","Unit", "F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]
 renameColumns2 = {"variable":"Year", "value":"Incident"}
 data2 = fixYear(renameColumn(meltTable(columnSelector(rowSelector(csvFetch(url2), "Indicator", "Climate related disasters frequency, Number of Disasters: TOTAL"), dropColumns2, selectedColumns2), ['ISO3'], ["F2010","F2011","F2012","F2013","F2014","F2015","F2016","F2017","F2018","F2019","F2020"]), renameColumns2))
-
 
 csvToSQLite(dropNull(dataLeftJoin(data1, data2, ["ISO3", "Year"], "_temp", "_incident")), targetedPath, "SurfaceTemperatureChangeOnClimate_relatedDisaster.sqlite", "Temp_Disaster")
