@@ -2,11 +2,7 @@ import pandas as pd
 import sqlite3
 import os
 import sys
-from colorama import init as colorama_init
-from colorama import Fore
-from colorama import Style
-
-colorama_init()
+from utils.alerts import *
 
 node = 0
 
@@ -20,17 +16,17 @@ class Pipeline():
         global node
         
         if node == 0:
-            print(f"{Fore.GREEN}{Style.BRIGHT}Start...{Style.RESET_ALL}")
+            success("Start...")
         node += 1
         if node > 0:
-            print(f"{Style.DIM}{Fore.YELLOW}Fetching Data from Source {Style.RESET_ALL}{Style.BRIGHT}{Fore.YELLOW}"+str(node)+f"{Style.DIM}{Fore.YELLOW}...{Style.RESET_ALL}")
+            progress("Fetching Data from Source", node)
         try:
             data = pd.read_csv(url)
             dataFrame = pd.DataFrame(data)
             return dataFrame
         except:
-            print(f"{Fore.RED}{Style.NORMAL}Data couldn't fetched...{Style.RESET_ALL}")
-            print(f"{Fore.RED}{Style.BRIGHT}Aborted...{Style.RESET_ALL}")
+            error("Data couldn't fetched...")
+            fail("Aborted...")
             sys.exit(0)
 
     def columnSelector(self, data : object, dropColumns : object, selectedColumns : object):
@@ -54,34 +50,35 @@ class Pipeline():
         return data
 
     def dropNull(self, data : object):
-        print(f"{Fore.CYAN}{Style.NORMAL}Filtering rows...{Style.RESET_ALL}")
+        primary("Filtering rows...")
         return data.dropna(how = "any", axis = 0) 
 
     def meltTable(self, data : object, keep : object, melt : object):
-        print(f"{Fore.CYAN}{Style.NORMAL}Processing Data...{Style.RESET_ALL}")
+        primary("Processing Data...")
         return pd.melt(data, id_vars=keep, value_vars=melt, ignore_index=True)
 
     def dataLeftJoin(self, left : object, right : object, key : object, leftSufx : str, rightSufx : str):
-        print(f"{Fore.CYAN}{Style.NORMAL}Joining Data...{Style.RESET_ALL}")
+        primary("Joining Data...")
         return pd.merge(left, right, how ='left', on = key, suffixes=(leftSufx, rightSufx)) 
 
     def csvToSQLite(self, data : object, savingPath : str, sqliteFileName : str, sqliteTableName : str):
         try:
             conn = sqlite3.connect(savingPath+sqliteFileName)
             data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-            print(f"{Fore.MAGENTA}{Style.BRIGHT}Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+f"]{Style.RESET_ALL}")
+            complete("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
             conn.close()  
-            print(f"{Fore.GREEN}{Style.BRIGHT}End...{Style.RESET_ALL}")
+            success("End...")
             
         except:
-            print(f"{Fore.YELLOW}{Style.DIM}Resolving Path...{Style.RESET_ALL}")
+            error("Path Error...")
+            progress2("Resolving Path...")
             savingPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)+"\n")) + "\\data\\"
             conn = sqlite3.connect("../data/"+sqliteFileName)
             data.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-            # print(f"{Fore.MAGENTA}{Style.BRIGHT}Data Exported... [Check $root/data Folder]{Style.RESET_ALL}")
-            print(f"{Fore.MAGENTA}{Style.BRIGHT}Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+f"]{Style.RESET_ALL}")
+            successDim("Path Resolved...")
+            complete("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
             conn.close()  
-            print(f"{Fore.GREEN}{Style.BRIGHT}End...{Style.RESET_ALL}")
+            success("End...")
 
 
 def main():
