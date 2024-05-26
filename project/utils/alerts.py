@@ -27,3 +27,11 @@ def fail(msg):
      
 def complete(msg):
     print(f"{Fore.BLUE}{Style.BRIGHT}{str(msg)}{Style.RESET_ALL}")
+    
+def displayData(data):
+    primary("Data Info-")
+    successDim("______________Columns_________________")
+    print(data.info(verbose=True))
+    successDim("________________Data__________________")
+    print(data.head(3))
+    successDim("______________________________________")
