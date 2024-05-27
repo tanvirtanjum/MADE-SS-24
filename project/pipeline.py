@@ -81,6 +81,8 @@ class Pipeline():
     def meltTable(self, keep : object, melt : object):
         primary("Processing Data...")
         self.PipelineData =  pd.melt(self.PipelineData, id_vars=keep, value_vars=melt, ignore_index=True)
+        successDim("Processed...")
+        displayData(self.PipelineData)
         
 
     def dataLeftJoin(self, left : object, right : object, key : object, leftSufx : str, rightSufx : str):
