@@ -61,8 +61,11 @@ class Pipeline():
         
 
     def fixYear(self):
+        primary("Fixing Year values...")
         self.PipelineData["Year"] = self.PipelineData["Year"].str[1:]
         self.PipelineData[["Year"]] = self.PipelineData[["Year"]].apply(pd.to_numeric)
+        successDim("Resolved...")
+        displayData(self.PipelineData)
         
     
     def limitYear(self, fromYear, toYear):
