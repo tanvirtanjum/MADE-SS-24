@@ -7,6 +7,18 @@ pipeline goodsPipeline {
         -> timeTransportedGoodsHeaderWriter
         -> quantityGoodsHeaderWriter
         -> goodsTableInterpreter
+        -> monthCaptitalize_1
+        -> monthCaptitalize_2
+        -> monthCaptitalize_3
+        -> monthCaptitalize_4
+        -> monthCaptitalize_5
+        -> monthCaptitalize_6
+        -> monthCaptitalize_7
+        -> monthCaptitalize_8
+        -> monthCaptitalize_9
+        -> monthCaptitalize_10
+        -> monthCaptitalize_11
+        -> monthCaptitalize_12
         -> goodsLoader;
 
 
@@ -56,6 +68,162 @@ pipeline goodsPipeline {
 
     valuetype GoodIdPattern oftype text {
         constraints: [RegEx_2,];
+    }
+
+    transform capitalizeJanuar {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Januar/ with 'JANUAR' ;
+    }
+
+    transform capitalizeFebruar {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Februar/ with 'FEBRUAR' ;
+    }
+
+    transform capitalizeMarz {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /März/ with 'MÄRZ' ;
+    }
+
+    transform capitalizeApril {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /April/ with 'APRIL' ;
+    }
+
+    transform capitalizeMai {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Mai/ with 'MAI' ;
+    }
+
+    transform capitalizeJuni {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Juni/ with 'JUNI' ;
+    }
+
+    transform capitalizeJuli {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Juli/ with 'JULI' ;
+    }
+
+    transform capitalizeAugust {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /August/ with 'AUGUST' ;
+    }
+
+    transform capitalizeSeptember {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /September/ with 'SEPTEMBER' ;
+    }
+
+    transform capitalizeOktober {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Oktober/ with 'OKTOBER' ;
+    }
+
+    transform capitalizeNovember {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /November/ with 'NOVEMBER' ;
+    }
+
+    transform capitalizeDezember {
+        from prev oftype text;
+        to new oftype text;
+
+        new:  prev replace /Dezember/ with 'DEZEMBER' ;
+    }
+
+    block monthCaptitalize_1 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeJanuar;
+    }
+
+    block monthCaptitalize_2 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeFebruar;
+    }
+
+    block monthCaptitalize_3 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeMarz;
+    }
+
+    block monthCaptitalize_4 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeApril;
+    }
+
+    block monthCaptitalize_5 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeMai;
+    }
+
+    block monthCaptitalize_6 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeJuni;
+    }
+
+    block monthCaptitalize_7 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeJuli;
+    }
+
+    block monthCaptitalize_8 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeAugust;
+    }
+
+    block monthCaptitalize_9 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeSeptember;
+    }
+
+    block monthCaptitalize_10 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeOktober;
+    }
+
+    block monthCaptitalize_11 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeNovember;
+    }
+
+    block monthCaptitalize_12 oftype TableTransformer {
+        inputColumns: ["month"];
+        outputColumn: "month";
+        use: capitalizeDezember;
     }
 
     block goodsCSVInterpreter oftype CSVInterpreter {
