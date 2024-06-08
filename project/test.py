@@ -9,22 +9,18 @@ class UnitTest(unittest.TestCase):
     path = pipeline.main()
     table = "Temp_Disaster"
     
-    def test_1_file_exists(self):
-        self.assertTrue(os.path.exists(self.path), f"The file {self.path} does not exist.")
-            
     
     def setUp(self):
         self.conn = sqlite3.connect(self.path)
         self.cursor = self.conn.cursor()
-
+        
     
     def tearDown(self):
         self.conn.close()
+        
     
-    
-    @classmethod
-    def tearDownClass(cls):
-        os.remove(UnitTest.path)
+    def test_1_file_exists(self):
+        self.assertTrue(os.path.exists(self.path), f"The file {self.path} does not exist.")
 
     
     def test_2_table_exists(self):
@@ -79,6 +75,11 @@ class UnitTest(unittest.TestCase):
             null_count = self.cursor.fetchone()[0]
             
             self.assertEqual(null_count, 0, f"There are NULL values in the column '{column}'.")
+        
+            
+    @classmethod
+    def tearDownClass(cls):
+        os.remove(UnitTest.path)
 
 
 if __name__ == '__main__':
