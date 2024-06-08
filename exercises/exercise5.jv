@@ -35,9 +35,9 @@ pipeline stopsPipeline {
     }
 
     constraint RangeConst_2 oftype RangeConstraint {
-        lowerBound: -100;
+        lowerBound: -91;
         lowerBoundInclusive: false;
-        upperBound: 100;
+        upperBound: 91;
         upperBoundInclusive: false;
     }
 
