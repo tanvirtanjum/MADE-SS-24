@@ -24,7 +24,7 @@ class UnitTest(unittest.TestCase):
     
     @classmethod
     def tearDownClass(cls):
-            os.remove(UnitTest.path)
+        os.remove(UnitTest.path)
 
     
     def test_2_table_exists(self):
@@ -34,6 +34,7 @@ class UnitTest(unittest.TestCase):
                             WHERE       type='table' 
                                         AND name='{self.table}';
         ''')
+        
         table_exists = self.cursor.fetchone()
         
         self.assertIsNotNone(table_exists, f"The table '{self.table}' does not exist.")
@@ -42,7 +43,9 @@ class UnitTest(unittest.TestCase):
     def test_3_columns_exist(self):
         self.cursor.execute(f'''
                             PRAGMA 
-                            table_info({self.table});''')
+                            table_info({self.table});
+        ''')
+        
         columns_info = self.cursor.fetchall()
         
         column_names = [info[1] for info in columns_info]
@@ -57,6 +60,7 @@ class UnitTest(unittest.TestCase):
                             SELECT      * 
                             FROM        {self.table};
         ''')
+        
         data_exists = self.cursor.fetchall()
         
         self.assertIsNotNone(data_exists, f"There are no data exist in the table.")
@@ -71,6 +75,7 @@ class UnitTest(unittest.TestCase):
                                 FROM        {self.table} 
                                 WHERE       {column} IS NULL;
             ''')
+            
             null_count = self.cursor.fetchone()[0]
             
             self.assertEqual(null_count, 0, f"There are NULL values in the column '{column}'.")
@@ -86,4 +91,5 @@ if __name__ == '__main__':
     primary("4. Row Checking")
     primary("5. Null Data Checking")
     progress2("____________________________________________________")
+    
     unittest.main()
