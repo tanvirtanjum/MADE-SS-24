@@ -102,17 +102,21 @@ class Pipeline():
             conn.close()  
             success("End...")
             
+            return savingPath+"\\"+sqliteFileName
+            
         except:
             error("Path Error...")
             progress2("Resolving Path...")
             displayData(self.PipelineData)
             savingPath = os.path.dirname(os.path.dirname(os.path.realpath(__file__)+"\n")) + "\\data\\"
-            conn = sqlite3.connect("../data/"+sqliteFileName)
+            conn = sqlite3.connect(savingPath+sqliteFileName)
             self.PipelineData.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
             successDim("Path Resolved...")
             complete("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
             conn.close()  
             success("End...")
+            
+            return savingPath+"\\"+sqliteFileName
 
 
 def main():
@@ -149,7 +153,7 @@ def main():
     targetedPath = os.path.join(os.getcwd(), "data\\")  
     fileName = "SurfaceTemperatureChangeOnClimate_relatedDisaster.sqlite"
     dbName = "Temp_Disaster"
-    p3.csvToSQLite(targetedPath, fileName, dbName)
+    return p3.csvToSQLite(targetedPath, fileName, dbName)
     
     
 if __name__ == "__main__":
