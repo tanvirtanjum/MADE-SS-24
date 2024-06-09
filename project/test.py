@@ -1,6 +1,7 @@
 import unittest
 import os
 import sqlite3
+import time
 import pipeline
 from utils.alerts import *
 
@@ -136,6 +137,9 @@ class UnitTest(unittest.TestCase):
         if hasattr(cls, 'conn') and cls.conn:
             cls.conn.close()
         if cls.path and os.path.exists(cls.path):
+            delay_seconds = 30
+            print(f"Waiting for {delay_seconds} seconds before deleting {cls.path}...")
+            time.sleep(delay_seconds)
             os.remove(cls.path)
 
 
