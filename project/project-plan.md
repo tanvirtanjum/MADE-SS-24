@@ -45,6 +45,7 @@ This dataset shows number of climate related natural disasters between 1980-2022
 8. Prepare Report [#8][i8]
 9. Brainstorming for possible test cases [#9][i9]
 10. Performing tests [#10][i10]
+11. Implementing CI [#11][i11]
 
 [i1]: https://github.com/tanvirtanjum/MADE-SS-24/issues/1
 [i2]: https://github.com/tanvirtanjum/MADE-SS-24/issues/2
@@ -56,3 +57,4 @@ This dataset shows number of climate related natural disasters between 1980-2022
 [i8]: https://github.com/tanvirtanjum/MADE-SS-24/issues/8
 [i9]: https://github.com/tanvirtanjum/MADE-SS-24/issues/9
 [i10]: https://github.com/tanvirtanjum/MADE-SS-24/issues/10
+[i11]: https://github.com/tanvirtanjum/MADE-SS-24/issues/11
