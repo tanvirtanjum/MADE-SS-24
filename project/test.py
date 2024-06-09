@@ -123,7 +123,7 @@ class UnitTest(unittest.TestCase):
         print("\n\n\n\n")
         success("*************  Test Report  *************")
         progress2("____________________Test Cases______________________")
-        primary("1. File Checking")
+        primary("1. Pipeline Checking")
         primary("2. File Checking")
         primary("3. Table Checking")
         primary("4. Column Checking")
