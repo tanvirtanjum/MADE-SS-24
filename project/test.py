@@ -135,8 +135,8 @@ class UnitTest(unittest.TestCase):
             cls.cursor.close()
         if hasattr(cls, 'conn') and cls.conn:
             cls.conn.close()
-        if cls.path and os.path.exists(cls.path):
-            os.remove(cls.path)
+        # if cls.path and os.path.exists(cls.path):
+            # os.remove(cls.path)
 
 
 if __name__ == '__main__':
