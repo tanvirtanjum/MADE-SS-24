@@ -24,4 +24,4 @@ jobs:
         pip install -r ./project/dependency.txt
 
     - name: Run tests
-      run: ./project/tests.sh
+      run: ./project/test.sh
