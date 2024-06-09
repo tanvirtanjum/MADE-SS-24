@@ -98,11 +98,11 @@ class Pipeline():
             conn = sqlite3.connect(savingPath+sqliteFileName)
             displayData(self.PipelineData)
             self.PipelineData.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
-            complete("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+            complete("Data Exported... [Path: "+(savingPath+"\\"+sqliteFileName).replace("\\\\", "\\")+"]")
             conn.close()  
             success("End...")
             
-            return {"Path" : savingPath+"\\"+sqliteFileName, "Table": sqliteTableName}
+            return {"Path" : (savingPath+"\\"+sqliteFileName).replace("\\\\", "\\"), "Table": sqliteTableName}
             
         except:
             error("Path Error...")
@@ -112,11 +112,11 @@ class Pipeline():
             conn = sqlite3.connect(savingPath+sqliteFileName)
             self.PipelineData.to_sql(sqliteTableName, conn, if_exists='replace', index=False)
             successDim("Path Resolved...")
-            complete("Data Exported... [Path: "+savingPath+"\\"+sqliteFileName+"]")
+            complete("Data Exported... [Path: "+(savingPath+"\\"+sqliteFileName).replace("\\\\", "\\")+"]")
             conn.close()  
             success("End...")
             
-            return {"Path" : savingPath+"\\"+sqliteFileName, "Table": sqliteTableName}
+            return {"Path" : (savingPath+"\\"+sqliteFileName).replace("\\\\", "\\"), "Table": sqliteTableName}
 
 
 def main():
