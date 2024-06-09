@@ -102,7 +102,7 @@ class Pipeline():
             conn.close()  
             success("End...")
             
-            return savingPath+"\\"+sqliteFileName
+            return {"Path" : savingPath+"\\"+sqliteFileName, "Table": sqliteTableName}
             
         except:
             error("Path Error...")
@@ -116,7 +116,7 @@ class Pipeline():
             conn.close()  
             success("End...")
             
-            return savingPath+"\\"+sqliteFileName
+            return {"Path" : savingPath+"\\"+sqliteFileName, "Table": sqliteTableName}
 
 
 def main():
