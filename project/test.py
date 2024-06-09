@@ -140,7 +140,7 @@ class UnitTest(unittest.TestCase):
             delay_seconds = 30
             print(f"Waiting for {delay_seconds} seconds before deleting {cls.path}...")
             time.sleep(delay_seconds)
-            os.remove(cls.path)
+            os.remove(cls.path) 
 
 
 if __name__ == '__main__':
