@@ -121,7 +121,7 @@ class UnitTest(unittest.TestCase):
             
     @classmethod
     def tearDownClass(cls):
-        print("\n\n\n\n")
+        print("\n\n")
         success("*************  Test Report  *************")
         progress2("____________________Test Cases______________________")
         primary("1. Pipeline Checking")
@@ -144,4 +144,4 @@ class UnitTest(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
