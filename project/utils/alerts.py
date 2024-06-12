@@ -24,6 +24,9 @@ def error(msg):
         
 def fail(msg):
     print(f"{Fore.RED}{Style.BRIGHT}{str(msg)}{Style.RESET_ALL}")
+    
+def danger(msg):
+     print(f"{Fore.RED}{Style.NORMAL}{str(msg)}{Style.RESET_ALL}")
      
 def complete(msg):
     print(f"{Fore.BLUE}{Style.BRIGHT}{str(msg)}{Style.RESET_ALL}")

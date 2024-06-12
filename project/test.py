@@ -121,6 +121,18 @@ class UnitTest(unittest.TestCase):
             
     @classmethod
     def tearDownClass(cls):
+        if hasattr(cls, 'cursor') and cls.cursor:
+            cls.cursor.close()
+        if hasattr(cls, 'conn') and cls.conn:
+            cls.conn.close()
+        if cls.path and os.path.exists(cls.path):
+            successDim("Testing Completed...")
+            # delay_seconds = 2
+            # print(f"Waiting for {delay_seconds} seconds before deleting {cls.path}...")
+            # time.sleep(delay_seconds)
+            os.remove(cls.path) 
+            danger(f"File [{cls.path}] deleted")
+            
         print("\n\n")
         success("*************  Test Report  *************")
         progress2("____________________Test Cases______________________")
@@ -131,16 +143,6 @@ class UnitTest(unittest.TestCase):
         primary("5. Row Checking")
         primary("6. Null Data Checking")
         progress2("____________________________________________________")
-        
-        if hasattr(cls, 'cursor') and cls.cursor:
-            cls.cursor.close()
-        if hasattr(cls, 'conn') and cls.conn:
-            cls.conn.close()
-        if cls.path and os.path.exists(cls.path):
-            # delay_seconds = 2
-            # print(f"Waiting for {delay_seconds} seconds before deleting {cls.path}...")
-            # time.sleep(delay_seconds)
-            os.remove(cls.path) 
 
 
 if __name__ == '__main__':
