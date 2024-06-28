@@ -51,6 +51,7 @@ This dataset shows number of climate related natural disasters between 1980-2022
 14. Prepare final project report [#14][i14]
 15. Prepare presentation slide [#15][i15]
 16. Record presentation [#16][i16]
+17. Licensing the project [#17][i17]
 
 [i1]: https://github.com/tanvirtanjum/MADE-SS-24/issues/1
 [i2]: https://github.com/tanvirtanjum/MADE-SS-24/issues/2
@@ -68,3 +69,4 @@ This dataset shows number of climate related natural disasters between 1980-2022
 [i14]: https://github.com/tanvirtanjum/MADE-SS-24/issues/14
 [i15]: https://github.com/tanvirtanjum/MADE-SS-24/issues/15
 [i16]: https://github.com/tanvirtanjum/MADE-SS-24/issues/16
+[i17]: https://github.com/tanvirtanjum/MADE-SS-24/issues/17
