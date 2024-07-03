@@ -48,10 +48,10 @@ python, pandas, colorama, matplotlib, sqlite3, vs-code
 For more data processing details visit [`[here].`](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/data-report.pdf)
 
 > #### 3. Analysis
-For the data analysis, I selected six countries: `Indonesia (IDN), Mozambique (MOZ), Italy (ITA), The United States (USA), Chile (CHL), and Australia (AUS)`. The analysis focused on the period from `2010` to `2019`, allowing for a comprehensive examination of trends and patterns over a decade. By focusing on this specific time-frame, I ensured that the data was recent enough to be relevant, yet extensive enough to capture significant changes and developments. This targeted selection of countries and years provided a diverse and rich dataset, facilitating a robust comparative analysis.
+For the data analysis, I selected six countries: `Indonesia (IDN), Mozambique (MOZ), Italy (ITA), The United States (USA), Chile (CHL), and Australia (AUS)`. The analysis focused on the period from `2010` to `2019`. That allows a comprehensive examination. By focusing on this specific time-frame, I ensured that the data was recent enough to be relevant, yet extensive enough to capture significant changes and developments. This targeted selection of countries and years provided a diverse and rich dataset, facilitating a robust comparative analysis.
 
-I utilized line charts for the analysis.[`[Source Code]`](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/Data_Analysis/data_analysis.py)
-Initially, I examined separately the changes in surface temperature and incidents occurred for the chosen countries within the specified time-frame. 
+I used line charts for the analysis.[`[Source Code]`](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/Data_Analysis/data_analysis.py)
+Initially, I examined separately, the changes in surface temperature and incidents occurred for the chosen countries within the specified time-frame. 
 <figure align="center" style="width:90%">
     <table>
     <tr>
@@ -62,12 +62,13 @@ Initially, I examined separately the changes in surface temperature and incident
     <figcaption>Figure 5: Surface Temperature Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Horizontal Axis: Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Vertical Axis: Surface Temperature): The y-axis represents surface temperature, with values ranging from 0 to 2.</small>
+    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
+    2. Y-axis (Surface Temperature): The y-axis represents surface temperature, with values ranging from 0 to 2.</small>
     </td>
     </tr>
     </table>
 </figure>
+
 The graph effectively visualizes the differences in surface temperature over a decade across these six countries.
 
 <figure align="center" style="width:90%">
@@ -80,8 +81,8 @@ The graph effectively visualizes the differences in surface temperature over a d
     <figcaption>Figure 6: Incidents Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Horizontal Axis: Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Vertical Axis: Incident): The y-axis represents the number of incidents, with values ranging from 0 to 30.</small>
+    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
+    2. Y-axis (Incident): The y-axis represents the number of incidents, with values ranging from 0 to 30.</small>
     </td>
     </tr>
     </table>
@@ -98,8 +99,8 @@ After that, I merged two charts
     <figcaption>Figure 7: Incidents Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Horizontal Axis: Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Left Vertical Axis: Incident): Represents the number of incidents, ranging from 0 to 30. 3. Y-axis (Right Vertical Axis: Surface Temperature (°C)): Represents the surface temperature anomalies in degrees Celsius, ranging from 0 to 2.</small>
+    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
+    2. Y-axis (Left: Incident): Represents the number of incidents, ranging from 0 to 30. 3. Y-axis (Right: Surface Temperature (°C)): Represents the surface temperature anomalies in degrees Celsius, ranging from 0 to 2.</small>
     </td>
     </tr>
     </table>
@@ -108,6 +109,7 @@ The graph shows, over one decade and for six countries, how incidents relate to 
 
 
 #### Findings:
+
 1. United States (Brown Lines):
 The graph shows large fluctuations for both incidents and temperature anomalies. The number of incidents peaks around 2013 and 2017, almost hitting 30 incidents; it dropped significantly in 2016. Temperature anomalies remain consistently high at close to 2.0°C.
 
@@ -127,7 +129,8 @@ The series depicts fluctuations for both incidents and temperature anomalies. Th
 The graphs show a minor increase of the incidents over the past years. The temperature anomaly has been slightly increasing, peaking at around 1.0°C.
 
 > #### 4. Conclusions
-* Correlation observations:
+
+1. Correlation observations:
 There appears to be a correlation between higher temperature anomalies and increased incidents, particularly evident in countries like the United States and Indonesia. This suggests that rising temperatures might be associated with a higher frequency of incidents.
 
 
