@@ -62,8 +62,12 @@ Initially, I examined separately, the changes in surface temperature and inciden
     <figcaption>Figure 5: Surface Temperature Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Surface Temperature): The y-axis represents surface temperature, with values ranging from 0 to 2.</small>
+    <small style="text-align: left">
+        <ul>
+            <li>X-axis (Year):The x-axis represents the years from 2010 to 2019.</li>
+            <li>Y-axis (Surface Temperature): The y-axis represents surface temperature, with values ranging from 0 to 2.</li>
+        </ul>
+    </small>
     </td>
     </tr>
     </table>
@@ -81,8 +85,12 @@ The graph effectively visualizes the differences in surface temperature over a d
     <figcaption>Figure 6: Incidents Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Incident): The y-axis represents the number of incidents, with values ranging from 0 to 30.</small>
+    <small style="text-align: left">
+        <ul>
+            <li>X-axis (Year):The x-axis represents the years from 2010 to 2019.</li>
+            <li>Y-axis (Incident): The y-axis represents the number of incidents, with values ranging from 0 to 30.</li>
+        </ul>
+    </small>
     </td>
     </tr>
     </table>
@@ -99,8 +107,13 @@ After that, I merged two charts
     <figcaption>Figure 7: Incidents Line Chart</figcaption>
     </td>
     <td>
-    <small>1. X-axis (Year):The x-axis represents the years from 2010 to 2019.
-    2. Y-axis (Left: Incident): Represents the number of incidents, ranging from 0 to 30. 3. Y-axis (Right: Surface Temperature (°C)): Represents the surface temperature anomalies in degrees Celsius, ranging from 0 to 2.</small>
+    <small style="text-align: left">
+        <ul>
+            <li>X-axis (Year):The x-axis represents the years from 2010 to 2019.</li>
+            <li>Y-axis (Left: Incident): Represents the number of incidents, ranging from 0 to 30.</li>
+            <li>Y-axis (Right: Surface Temperature (°C)): Represents the surface temperature anomalies in degrees Celsius, ranging from 0 to 2.</li>
+        </ul>
+    </small>
     </td>
     </tr>
     </table>
