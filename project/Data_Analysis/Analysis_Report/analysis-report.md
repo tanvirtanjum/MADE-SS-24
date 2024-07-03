@@ -3,7 +3,6 @@
         text-align: justify
     }
 </style>
-
 ## __Effects of Surface Temperature Change on Climate-related Disasters__
 
 > #### 1. Introduction
@@ -15,7 +14,7 @@ The global climate change is a significant problem requiring urgent attention as
 
 > #### 2. Used Data
 
-By using two open datasets from well-established repository ***[`[INTERNATIONAL MONETARY FUND]`](https://www.imf.org)***, this project was performed. They provided a lot of information that was crucial to my research. The datasets are free-to-use for study purpose ***[`[Terms]`](https://www.imf.org/external/terms.htm)***. For this project I used two datasets.
+By using two open datasets from well-established repository ***[`[INTERNATIONAL MONETARY FUND]`](https://www.imf.org)***, this project was performed. They provided a lot of information that was crucial to my research. The datasets are free-to-use for academic purposes ***[`[Terms]`](https://www.imf.org/external/terms.htm)***. For this project I used two datasets.
 - **[`Annual Surface Temperature Change`](https://climatedata.imf.org/datasets/4063314923d74187be9596f10d034914/explore)**
 - **[`Climate-related Disasters Frequency`](https://climatedata.imf.org/datasets/b13b69ee0dde43a99c811f592af4e821/explore)**
 
@@ -129,30 +128,43 @@ The graph shows, over one decade (2010-2019) and for six countries, how incident
 #### Findings:
 
 1. The United States (Brown Lines):
-The graph shows large fluctuations for both incidents and temperature anomalies. The number of incidents peaks around 2013 and 2017, almost hitting 30 incidents; it dropped significantly in 2016. Temperature anomalies remain consistently high at close to 2.0°C.
+Both of the indicators increase and decrease intensively, and numerous oscillations are observed on the graph. It shows that the frequency rises at the middle of the year 2013 and at the beginning of 2017, even nearing to 30 of incidence; it enormously decreased at 2016. Temperature Anomalies continue to be high at almost 2°C consistently 0°C.
 
 2. Indonesia (Green Lines):
-The incident profile shows a gradual rise, peaking in 2019 at just over 10 incidents. There is also a smooth rise for temperature anomalies, peaking around 1.0°C.
-Australia (Blue Lines):
+The trend of the incidents is observed as gradually increasing and reaching their maximum values in 2019, with more than 10 incidents. Another feature is gradual increase of the temperature anomalies to the values in the first coordinate, reached near 1.0°C.
 
-3. It indicates fluctuating incidents, with remarkable spikes in the years 2018 and 2019. According to temperature anomalies, they were gradually increasing and reached almost 1.5°C in 2019.
+3. Australia (Blue Lines):
+It points towards relatively varying occurrences of the incidence with distinctive steep rises in the year 2018 and 2019. As per the temperature changes, they were slowly rising and had crossed the mean by nearly one degree. 5°C in 2019.
 
 4. Chile (Orange Lines):
-It shows quite stable and low incident rates, and temperature anomalies are low also, at around 0.5°C.
+It reveals that it has comparatively stable and low incident rates and temp deviations are low too, it stands at 0. 5°C.
 
 5. Italy (Red Lines):
-The series depicts fluctuations for both incidents and temperature anomalies. The incidents are well below 10, with temperature anomalies of around 1.5°C.
+In performing the various coefficients, the series portrays variability for incidents as well as temperature deviation. The incidents are 9 or less and the temperature differences are somewhere in the range of one. 5°C.
 
 6. Mozambique (Purple Lines):
-The graphs show a minor increase of the incidents over the past years. The temperature anomaly has been slightly increasing, peaking at around 1.0°C.
+The latter illustrates a slightly rising tendency of the incidents during the past years. Focusing on the change in the temperature anomaly, it is necessary to note that it has been rising slightly with the maximum value of 1. 0°C.
 
 > #### 4. Conclusions
 
 1. Correlation observations:
-There appears to be a correlation between higher temperature anomalies and increased incidents, particularly evident in countries like the United States and Indonesia. This suggests that rising temperatures might be associated with a higher frequency of incidents.
+It is as well possible to believe that the temperature anomalies are increasing, and the incidents number is growing as well, especially in the USA and Indonesia. Be that as it may, this implies that there is likelihood that the cases of such incidents are linked with increase in temperature as well.
 
 
 Further research might permit the study of the causes and variables of these correlations in more depth, trying to understand how climate change works to cause such societal and environmental incidents.
 
 
 Overall, this analysis highlights the relationship between surface temperature anomalies and natural disasters.
+
+<div style="width: 100%">
+<p style="width: 100%; text-align: right">
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+<small>
+    -Tanvir Tanjum Shourav </br>
+    -Matriculation Id. <b><em>23392255</em></b> [MSc. in Data Science] </br>
+    -Methods of Advanced Data Engineering </br>
+    -Friedrich-Alexander-Universität Erlangen-Nürnberg
+</small>
+</p>
+</div>
+
