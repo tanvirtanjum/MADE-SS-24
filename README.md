@@ -1,9 +1,3 @@
-<style>
-    body {
-        text-align: justify
-    }
-</style>
-
 # Exercise Badges
 
 ![](https://byob.yarr.is/tanvirtanjum/MADE-SS-24/score_ex1) ![](https://byob.yarr.is/tanvirtanjum/MADE-SS-24/score_ex2) ![](https://byob.yarr.is/tanvirtanjum/MADE-SS-24/score_ex3) ![](https://byob.yarr.is/tanvirtanjum/MADE-SS-24/score_ex4) ![](https://byob.yarr.is/tanvirtanjum/MADE-SS-24/score_ex5)
@@ -15,7 +9,7 @@ The global climate change is a significant problem requiring urgent attention as
 <figure align="center" style="width:100%">
     <img src="./project/assets/Effects of Surface Temperature Change on Climate-related Disasters_1.jpg"
          alt="Cover Image"
-         style="width:100%">
+         style="width:60%">
 </figure>
 
 > ##### Used Data
