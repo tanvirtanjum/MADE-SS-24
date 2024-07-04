@@ -6,7 +6,7 @@
 The global climate change is a significant problem requiring urgent attention as it affects both human and nature. One of the most important issues concerning climate change is the increase in surface temperatures, leading to increased frequency and severity of climate related disasters. This data engineering project seeks to investigate how these changes in surface temperature are responsible for climate-related disasters. By processing historical records and applying sophisticated data analysis methods, this data engineering project attempts to explain these patterns. The main question for this project was- 
 
 ***How have different regions around the world been affected by changes in surface temperature in terms of climate-related disasters?***
-<figure align="center" style="width:100%">
+<figure align="center" style="width:100%; backgroud-color: white">
     <img src="./project/assets/Effects of Surface Temperature Change on Climate-related Disasters_1.jpg"
          alt="Cover Image"
          style="width:60%">
