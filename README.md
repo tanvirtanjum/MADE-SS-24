@@ -19,13 +19,15 @@ By using two open datasets from well-established repository ***[`[INTERNATIONAL 
 - **[`Climate-related Disasters Frequency`](https://climatedata.imf.org/datasets/b13b69ee0dde43a99c811f592af4e821/explore)**
 
 The extensive data points found in these datasets enabled me to make detailed analyses. To take full advantage of the datasets in this instance, I created and executed a data pipeline *[`[Source Code]`](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/pipeline.py)* to help structure a workflow for the data backend.
-<div md-colors="{background: 'grey-A100'}">
-<figure align="center" style="width:100%">
+<!-- <figure align="center" style="width:100%">
     <img src="./project/Data_Analysis/Analysis_Report/ETL.png"
          alt="ETL Pipeline Flow"
          style="width:60%">
     <figcaption>Figure 1: ETL Pipeline</figcaption>
-</figure>
+</figure> -->
+<div style="width: 100%; background-color: white; display: inline-block;" align="center">
+  <img src="./project/Data_Analysis/Analysis_Report/ETL.png" alt="ETL Pipeline Flow"
+         style="width:60%"/>
 </div>
 Creating this pipeline was an important part of the project. Firstly, it was used to fetch the data from the source.
 <figure align="center" style="width:100%">
