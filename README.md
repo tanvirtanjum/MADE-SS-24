@@ -53,6 +53,8 @@ Then it was used to sort out the work conducted by merging and creating a singul
          style="width:80%">
     <figcaption>Figure 4: Final Merged Data</figcaption>
 </figure>
+
+
 By doing this, I was able to enhance the quality of the data while showing how important data engineering is to any project. 
 
 >Following technologies were used-
