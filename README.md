@@ -19,13 +19,19 @@ By using two open datasets from well-established repository ***[`[INTERNATIONAL 
 - **[`Climate-related Disasters Frequency`](https://climatedata.imf.org/datasets/b13b69ee0dde43a99c811f592af4e821/explore)**
 
 The extensive data points found in these datasets enabled me to make detailed analyses. To take full advantage of the datasets in this instance, I created and executed a data pipeline *[`[Source Code]`](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/pipeline.py)* to help structure a workflow for the data backend.
+
+
 <figure align="center" style="width:100%">
     <img src="./project/Data_Analysis/Analysis_Report/ETL.png"
          alt="ETL Pipeline Flow"
          style="width:60%">
     <figcaption>Figure 1: ETL Pipeline</figcaption>
 </figure>
+
+
 Creating this pipeline was an important part of the project. Firstly, it was used to fetch the data from the source.
+
+
 <figure align="center" style="width:100%">
     <img src="./project/Data_Analysis/Analysis_Report//Annual Surface Temperature Change.png"
          alt="Annual Surface Temperature Change"
@@ -36,7 +42,11 @@ Creating this pipeline was an important part of the project. Firstly, it was use
           style="width:80%">
     <figcaption>Figure 3: DB - Source 2</figcaption>
 </figure>
+
+
 Then it was used to sort out the work conducted by merging and creating a singular format for data transference and analysis. Some of the steps included in the process were - data cleaning, transformation, and validation to ensure that all of the steps were in order and that the data flow was reliable. 
+
+
 <figure align="center" style="width:100%">
     <img src="./project/Data_Analysis/Analysis_Report//FinalDB.png"
          alt="Final Merged Data"
