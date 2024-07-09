@@ -81,15 +81,16 @@ Or, Direct [`Download`](https://github.com/tanvirtanjum/MADE-SS-24/archive/refs/
 5. Run the project pipeline using the pipeline shell script "$projectRoot/project/pipeline.sh"
 ```
 > Open git-bash
-> Go to project root directory
+> Go to the project root directory
 	e.g- cd E:/Github/MADE-SS-24
 > Type and Enter: sh ./project/pipeline.sh
+> Check processed data on $root/data folder
 ```
 
 6. Run the project pipeline testing using the test shell script "$projectRoot/project/test.sh"
 ```
 > Open git-bash
-> Go to project root directory
+> Go to the project root directory
 	e.g- cd E:/Github/MADE-SS-24
 > Type and Enter: sh ./project/test.sh
 ```
