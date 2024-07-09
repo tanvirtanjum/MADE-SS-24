@@ -95,6 +95,11 @@ Or, Direct [`Download`](https://github.com/tanvirtanjum/MADE-SS-24/archive/refs/
 > Type and Enter: sh ./project/test.sh
 ```
 
+
+> #### License
+This project is licensed under the MIT License. See the [`LICENSE`](https://github.com/tanvirtanjum/MADE-SS-24/LICENSE) file for more details.
+
+
 > #### Important Links:
 * [Pipeline Source Code](https://github.com/tanvirtanjum/MADE-SS-24/blob/main/project/pipeline.py)
 
